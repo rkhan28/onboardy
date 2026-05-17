@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Single dark palette — no theme switching. */
+:root {
+  --bg: #08070c;
+  --bg-elev: #120f17;
+  --fg: #f7efd9;
+  --fg-strong: #fdfaf3;
+  --fg-muted: rgba(247, 239, 217, 0.62);
+  --fg-faint: rgba(247, 239, 217, 0.42);
+
+  --border: rgba(247, 239, 217, 0.08);
+  --border-strong: rgba(247, 239, 217, 0.16);
+  --border-gold: rgba(202, 164, 74, 0.32);
+
+  --glass: rgba(247, 239, 217, 0.035);
+  --glass-strong: rgba(247, 239, 217, 0.07);
+
+  --gold: #caa44a;
+  --gold-soft: rgba(202, 164, 74, 0.16);
+  --gold-glow: rgba(220, 190, 107, 0.35);
+
+  --violet-mist: rgba(96, 64, 132, 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background grain + faint warm spotlight that lives behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      rgba(202, 164, 74, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 100%,
+      rgba(96, 64, 132, 0.1),
+      transparent 60%
+    );
+}
+
+::selection {
+  background: var(--gold-soft);
+  color: var(--fg-strong);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(247, 239, 217, 0.14);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(247, 239, 217, 0.28);
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /* === Liquid Glass — iOS-style ===
+     Heavy blur + saturation + inner highlight + outer hairline.
+     Use .glass for typical surfaces and .glass-heavy for hero/feature panels. */
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(247, 239, 217, 0.06),
+      rgba(247, 239, 217, 0.02) 40%,
+      rgba(247, 239, 217, 0.04)
+    );
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid var(--border);
+    box-shadow:
+      inset 0 1px 0 0 rgba(247, 239, 217, 0.08),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+      0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+  .glass-heavy {
+    background: linear-gradient(
+      135deg,
+      rgba(247, 239, 217, 0.09),
+      rgba(247, 239, 217, 0.03) 35%,
+      rgba(247, 239, 217, 0.06)
+    );
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid var(--border-strong);
+    box-shadow:
+      inset 0 1px 0 0 rgba(247, 239, 217, 0.14),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.45),
+      0 20px 60px -10px rgba(0, 0, 0, 0.6);
+  }
+  /* Specular highlight overlay — gives glass that wet, iPhone-26 sheen */
+  .glass-shine {
+    position: relative;
+    isolation: isolate;
+  }
+  .glass-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 239, 217, 0.18) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(202, 164, 74, 0.08) 100%
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+  .glass-shine > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em];
+    color: var(--fg-muted);
+    background: var(--glass);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  /* Gold gradient primary button — premium, with internal shine */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition-all duration-500;
+    color: #1a1620;
+    background:
+      linear-gradient(180deg, #f5ecd0 0%, #dcbe6b 35%, #caa44a 65%, #9a6f26 100%);
+    border: 1px solid rgba(247, 239, 217, 0.45);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.45),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.18),
+      0 12px 30px rgba(202, 164, 74, 0.28);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.18),
+      0 16px 40px rgba(202, 164, 74, 0.4);
+  }
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+  }
+  .btn-primary:hover::after {
+    transform: translateX(120%);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-500;
+    color: var(--fg);
+    background: var(--glass);
+    border: 1px solid var(--border-strong);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+  }
+  .btn-ghost:hover {
+    background: var(--glass-strong);
+    border-color: var(--border-gold);
+    transform: translateY(-1px);
+  }
+
+  .card-glass {
+    @apply rounded-2xl p-6 transition-all duration-500;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 239, 217, 0.06),
+      rgba(247, 239, 217, 0.02) 50%,
+      rgba(247, 239, 217, 0.04)
+    );
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid var(--border);
+    box-shadow:
+      inset 0 1px 0 0 rgba(247, 239, 217, 0.06),
+      0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+  .card-glass:hover {
+    border-color: var(--border-gold);
+    background: linear-gradient(
+      135deg,
+      rgba(247, 239, 217, 0.09),
+      rgba(202, 164, 74, 0.04) 50%,
+      rgba(247, 239, 217, 0.05)
+    );
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 0 rgba(247, 239, 217, 0.12),
+      0 24px 60px -10px rgba(0, 0, 0, 0.55),
+      0 0 0 1px var(--border-gold);
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl;
+    color: var(--fg-strong);
+  }
+
+  .muted {
+    color: var(--fg-muted);
+  }
+
+  /* Gold-to-champagne shimmering accent text */
+  .text-gold {
+    background: linear-gradient(
+      90deg,
+      #ead79f 0%,
+      #caa44a 35%,
+      #f5ecd0 65%,
+      #caa44a 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 7s linear infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(247, 239, 217, 0.04) 1px, transparent 1px),
+      linear-gradient(
+        90deg,
+        rgba(247, 239, 217, 0.04) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+  /* Subtle film grain — sells the premium feel */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+}
