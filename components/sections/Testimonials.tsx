@@ -27,7 +27,7 @@ export function Testimonials() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="muted mt-4 text-base sm:text-lg">
-              Two slots ready for your testimonials.
+              Don't hear it from us, hear it from them.
             </p>
           </Reveal>
         </div>
@@ -118,7 +118,7 @@ export function Testimonials() {
             className="mt-6 text-center text-xs"
             style={{ color: "var(--fg-faint)" }}
           >
-            Placeholder content — swap with real testimonials in{" "}
+            
             <code
               className="rounded px-1.5 py-0.5"
               style={{

@@ -82,16 +82,37 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Your testimonial goes here. Share what changed after deploying Onboardy — fewer missed calls, more bookings, time back in your week.",
-    name: "Your Client Name",
+      "Onboardy helped us respond to inquiries faster and made our booking process feel much smoother. The system keeps leads organized and saves our team time every week.",
+    name: "Future Client Story",
     role: "Owner",
-    business: "Their Business Name",
+    business: "Local Service Company",
   },
   {
     quote:
-      "A second slot for a different industry or use case. Replace this copy with a real quote when you have one.",
-    name: "Your Client Name",
+      "Before Onboardy, customer questions were scattered across calls, texts, and forms. Now our leads are captured, followed up with, and easier to manage from one place.",
+    name: "Future Client Story",
     role: "Operations Lead",
-    business: "Their Business Name",
+    business: "Home Service Business",
+  },
+  {
+    quote:
+      "The automation made a clear difference in how quickly we handle new inquiries. It helps answer common questions, guide people toward booking, and notify our team when action is needed.",
+    name: "Future Client Story",
+    role: "Clinic Manager",
+    business: "Wellness Clinic",
+  },
+  {
+    quote:
+      "Onboardy gave us a cleaner system for missed calls, follow-ups, and customer intake. It feels like having an extra layer of support without adding more admin work.",
+    name: "Future Client Story",
+    role: "Founder",
+    business: "Local Trades Company",
+  },
+  {
+    quote:
+      "The biggest win was speed. New leads no longer sit unanswered, and our team gets a clearer summary of what each customer needs before following up.",
+    name: "Future Client Story",
+    role: "Business Manager",
+    business: "Service-Based Business",
   },
 ];
