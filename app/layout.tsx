@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Sora, Fraunces } from "next/font/google";
 import "./globals.css";
 
@@ -55,6 +55,13 @@ export const metadata: Metadata = {
     description: siteDescription,
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08070c",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

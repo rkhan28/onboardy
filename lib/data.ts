@@ -22,33 +22,39 @@ export type Feature = {
 
 export const FEATURES: Feature[] = [
   {
-    title: "AI Receptionist",
-    description: "Answers calls, qualifies leads, books appointments.",
+    title: "Voice AI Receptionist",
+    description:
+      "Picks up every call, qualifies the lead, and writes a clean summary to your CRM.",
     icon: PhoneCall,
   },
   {
     title: "Missed Call Recovery",
-    description: "Instant SMS that turns missed calls into bookings.",
+    description:
+      "Auto-SMS within seconds — recovers callers before they dial a competitor.",
     icon: Zap,
   },
   {
     title: "Conversion Websites",
-    description: "Fast, modern sites built to capture leads.",
+    description:
+      "Fast, mobile-first pages with built-in lead capture and tracking.",
     icon: Globe,
   },
   {
     title: "CRM & Workflows",
-    description: "One dashboard for leads, jobs, and follow-ups.",
+    description:
+      "Pipelines, jobs, and follow-ups in one dashboard — synced across channels.",
     icon: LayoutDashboard,
   },
   {
     title: "Review Engine",
-    description: "Automated review requests after every job.",
+    description:
+      "Post-job SMS that pushes happy customers to Google. On autopilot.",
     icon: Star,
   },
   {
-    title: "Smart Chatbot",
-    description: "Trained on your services, FAQs, and booking flow.",
+    title: "Trained Chatbot",
+    description:
+      "Web chatbot fluent in your services, hours, pricing logic, and booking flow.",
     icon: Bot,
   },
 ];
@@ -76,14 +82,14 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Your testimonial goes here. Share what changed after working with Onboardy — fewer missed calls, more bookings, time back in your week.",
+      "Your testimonial goes here. Share what changed after deploying Onboardy — fewer missed calls, more bookings, time back in your week.",
     name: "Your Client Name",
     role: "Owner",
     business: "Their Business Name",
   },
   {
     quote:
-      "A second testimonial slot — perfect for a different industry or use case. Replace this copy with a real quote when you have one.",
+      "A second slot for a different industry or use case. Replace this copy with a real quote when you have one.",
     name: "Your Client Name",
     role: "Operations Lead",
     business: "Their Business Name",

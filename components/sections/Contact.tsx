@@ -29,7 +29,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative py-20 sm:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
@@ -38,23 +38,23 @@ export function Contact() {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--gold)" }}
               />
-              Contact
+              Get started
             </span>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="section-title mt-4 text-balance">
-              Let&apos;s map your{" "}
-              <span className="font-serif italic text-gold">automation.</span>
+              Audit your{" "}
+              <span className="font-serif italic text-gold">workflow.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="muted mt-4 text-base sm:text-lg">
-              Tell us what slows you down. We&apos;ll show you where AI helps.
+              Tell us where leads leak. We&apos;ll map the fix.
             </p>
           </Reveal>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-4 lg:grid-cols-[1.4fr_1fr]">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 lg:grid-cols-[1.4fr_1fr]">
           <Reveal>
             <div className="card-glass glass-shine p-6 sm:p-8">
               {submitted ? (
@@ -135,7 +135,7 @@ export function Contact() {
                       onChange={onChange("goal")}
                       rows={3}
                       placeholder="e.g. We miss too many calls during peak hours."
-                      className="mt-1.5 w-full resize-none rounded-xl px-3.5 py-2.5 text-sm transition focus:outline-none"
+                      className="mt-1.5 w-full resize-none rounded-xl px-3.5 py-2.5 text-base transition focus:outline-none sm:text-sm"
                       style={{
                         background: "var(--glass)",
                         border: "1px solid var(--border-strong)",
@@ -145,7 +145,7 @@ export function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="btn-primary w-full sm:w-auto"
+                    className="btn-primary w-full"
                   >
                     Send Request
                     <ArrowRight className="h-4 w-4" />
@@ -283,7 +283,7 @@ function Field({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="mt-1.5 w-full rounded-xl px-3.5 py-2.5 text-sm transition focus:outline-none"
+        className="mt-1.5 w-full rounded-xl px-3.5 py-2.5 text-base transition focus:outline-none sm:text-sm"
         style={{
           background: "var(--glass)",
           border: "1px solid var(--border-strong)",

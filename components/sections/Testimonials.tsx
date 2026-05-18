@@ -7,7 +7,7 @@ import { TESTIMONIALS } from "@/lib/data";
 
 export function Testimonials() {
   return (
-    <section className="relative py-24 sm:py-28 lg:py-32">
+    <section className="relative py-20 sm:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
@@ -16,24 +16,23 @@ export function Testimonials() {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--gold)" }}
               />
-              In their words
+              Operators
             </span>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="section-title mt-4 text-balance">
-              What clients{" "}
-              <span className="font-serif italic text-gold">say.</span>
+              Real teams.{" "}
+              <span className="font-serif italic text-gold">Real lift.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="muted mt-4 text-base sm:text-lg">
-              Real results, in their own voice. Two slots ready for your
-              testimonials.
+              Two slots ready for your testimonials.
             </p>
           </Reveal>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
             <motion.figure
               key={i}
@@ -45,7 +44,7 @@ export function Testimonials() {
                 delay: i * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="card-glass glass-shine relative overflow-hidden p-7 sm:p-8"
+              className="card-glass glass-shine relative overflow-hidden p-5 sm:p-7 md:p-8"
             >
               <span
                 aria-hidden
@@ -62,7 +61,7 @@ export function Testimonials() {
               />
 
               <blockquote
-                className="relative mt-5 font-serif text-lg leading-relaxed sm:text-xl"
+                className="relative mt-5 font-serif text-base leading-relaxed sm:text-lg md:text-xl"
                 style={{ color: "var(--fg-strong)" }}
               >
                 <span className="opacity-80">“</span>

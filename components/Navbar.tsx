@@ -75,7 +75,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="glass grid h-10 w-10 place-items-center rounded-full md:hidden"
+            className="glass grid h-11 w-11 place-items-center rounded-full md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >

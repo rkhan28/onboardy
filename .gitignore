@@ -1,7 +1,8 @@
-node_modules/
-.next/
-out/
+node_modules
+.next
+dist
+build
 .env
 .env.local
-dist/
+.vercel
 .DS_Store

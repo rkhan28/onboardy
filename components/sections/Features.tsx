@@ -6,7 +6,7 @@ import { Reveal } from "../ui/Reveal";
 
 export function Features() {
   return (
-    <section id="features" className="relative py-24 sm:py-28 lg:py-32">
+    <section id="features" className="relative py-20 sm:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px"
@@ -23,26 +23,25 @@ export function Features() {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--gold)" }}
               />
-              Features
+              The stack
             </span>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="section-title mt-4">
-              Everything you need.{" "}
+              Six systems.{" "}
               <span className="font-serif italic text-gold">
-                Nothing you don&apos;t.
+                One platform.
               </span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="muted mt-4 text-base sm:text-lg">
-              Six systems, one platform. Built to capture leads, book customers,
-              and run on autopilot.
+              Voice, SMS, web, CRM, calendar, reviews — orchestrated end-to-end.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f, i) => {
             const Icon = f.icon;
             return (

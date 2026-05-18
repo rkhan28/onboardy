@@ -59,7 +59,7 @@ export function GrowthChart() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 sm:py-28 lg:py-32">
+    <section className="relative py-20 sm:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
@@ -73,16 +73,15 @@ export function GrowthChart() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="section-title mt-4 text-balance">
-              Revenue clients see{" "}
+              Revenue, 90 days{" "}
               <span className="font-serif italic text-gold">
-                after Onboardy.
+                after deploy.
               </span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="muted mt-4 text-base sm:text-lg">
-              Same business, same season. The difference is fewer missed leads
-              and faster follow-up.
+              Same team, same season — fewer missed leads, faster follow-up.
             </p>
           </Reveal>
         </div>
@@ -90,7 +89,7 @@ export function GrowthChart() {
         <Reveal delay={0.15}>
           <div
             ref={ref}
-            className="card-glass glass-shine relative mt-14 overflow-hidden p-5 sm:p-8"
+            className="card-glass glass-shine relative mt-12 overflow-hidden p-4 sm:p-6 lg:p-8"
           >
             {/* Top legend strip */}
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -114,10 +113,11 @@ export function GrowthChart() {
             </div>
 
             {/* The chart */}
-            <div className="relative mt-6 overflow-x-auto">
+            <div className="relative mt-6">
               <svg
                 viewBox={`0 0 ${W} ${H}`}
-                className="block h-[260px] w-full min-w-[640px] sm:h-[300px]"
+                preserveAspectRatio="xMidYMid meet"
+                className="block h-[220px] w-full sm:h-[280px] lg:h-[300px]"
                 role="img"
                 aria-label="Revenue growth before and after Onboardy"
               >

@@ -13,7 +13,7 @@ const social = [
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative pt-10">
+    <footer className="relative pt-6">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
@@ -22,7 +22,7 @@ export function Footer() {
             "linear-gradient(90deg, transparent, var(--border-gold), transparent)",
         }}
       />
-      <div className="container-x pb-10 pt-12">
+      <div className="container-x pb-10 pt-10">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <Logo />
@@ -55,7 +55,7 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="glass grid h-9 w-9 place-items-center rounded-full transition hover:scale-110"
+                  className="glass grid h-10 w-10 place-items-center rounded-full transition hover:scale-110"
                 >
                   <Icon
                     className="h-4 w-4"
