@@ -21,13 +21,13 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
-const siteUrl = "https://onboardy.example.com";
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined;
 const siteTitle = "Onboardy — AI Automation for Service Businesses";
 const siteDescription =
   "AI receptionists, booking funnels, and CRM automations that turn missed leads into booked customers.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: {
     default: siteTitle,
     template: "%s · Onboardy",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_CA",
     url: siteUrl,
     siteName: "Onboardy",
     title: siteTitle,

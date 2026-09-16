@@ -12,7 +12,6 @@ import {
   Mic,
   Zap,
 } from "lucide-react";
-import { ClientLogos } from "../ui/ClientLogos";
 
 // ── Scripted live-demo conversation ──
 type Msg =
@@ -31,10 +30,10 @@ const script: Msg[] = [
 ];
 
 const stats = [
-  { value: "12s", label: "Avg. reply" },
-  { value: "3×", label: "Booked leads" },
-  { value: "24/7", label: "Always on" },
-  { value: "100%", label: "Handoff" },
+  { value: "Calls", label: "Reception workflows" },
+  { value: "Leads", label: "Follow-up workflows" },
+  { value: "CRM", label: "Connected records" },
+  { value: "People", label: "Human handoff" },
 ];
 
 export function Hero() {
@@ -75,7 +74,7 @@ export function Hero() {
             className="muted mx-auto mt-5 max-w-xl text-base sm:text-lg"
           >
             An AI receptionist, CRM, and booking funnel — running 24/7 so your
-            team never misses revenue.
+            team can follow up more consistently.
           </motion.p>
 
           <motion.div
@@ -95,7 +94,7 @@ export function Hero() {
         </div>
 
         {/* Transparent logo carousel — sits right under the CTAs */}
-        <LogoCarousel />
+
 
         {/* Unified live demo panel */}
         <motion.div
@@ -112,7 +111,7 @@ export function Hero() {
 }
 
 // ─────────────────────────────────────────────
-// Live demo panel — animated AI conversation + live stats
+// Workflow example panel — animated AI conversation + live stats
 // ─────────────────────────────────────────────
 function LiveDemoPanel() {
   return (
@@ -138,7 +137,7 @@ function LiveDemoPanel() {
               className="text-[10px] font-semibold uppercase tracking-[0.18em]"
               style={{ color: "var(--fg-faint)" }}
             >
-              Live demo
+              Workflow example
             </p>
             <p
               className="truncate text-xs font-medium"
@@ -182,7 +181,7 @@ function LiveBadge() {
           style={{ background: "var(--gold)" }}
         />
       </span>
-      Live
+      Example
     </span>
   );
 }
@@ -430,40 +429,6 @@ function StatsRail() {
 // ─────────────────────────────────────────────
 // Logo carousel + aurora
 // ─────────────────────────────────────────────
-function LogoCarousel() {
-  const doubled = [...ClientLogos, ...ClientLogos];
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.4 }}
-      className="mx-auto mt-10 max-w-5xl sm:mt-12"
-    >
-      <p
-        className="text-center text-[10px] font-semibold uppercase tracking-[0.28em]"
-        style={{ color: "var(--fg-faint)" }}
-      >
-        Trusted by service businesses like
-      </p>
-      <div className="mask-fade-x mt-5 overflow-hidden">
-        <div className="flex w-max animate-marquee items-center gap-8 sm:gap-12 md:gap-16">
-          {doubled.map((logo, i) => {
-            const L = logo.Component;
-            return (
-              <div
-                key={`${logo.name}-${i}`}
-                className="shrink-0 opacity-50 transition-all duration-500 hover:opacity-100"
-                style={{ color: "var(--fg)" }}
-              >
-                <L className="h-6 w-auto sm:h-7" />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 function Aurora() {
   return (

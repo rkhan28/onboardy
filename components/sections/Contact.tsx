@@ -25,6 +25,9 @@ export function Contact() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Onboardy enquiry — ${form.business}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nBusiness: ${form.business}\n\n${form.goal}`);
+    window.location.href = `mailto:rahmatkhan2001@hotmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -82,10 +85,10 @@ export function Contact() {
                     className="mt-5 font-display text-2xl font-semibold"
                     style={{ color: "var(--fg-strong)" }}
                   >
-                    Request received
+                    Email draft requested
                   </h3>
                   <p className="muted mt-2 max-w-sm text-sm">
-                    We&apos;ll reply within one business day.
+                    Complete and send the message in your email app. Nothing has been submitted by this website.
                   </p>
                   <button
                     type="button"
@@ -99,7 +102,7 @@ export function Contact() {
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={onSubmit} className="space-y-4" noValidate>
+                <form onSubmit={onSubmit} className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field
                       label="Name"
@@ -147,7 +150,7 @@ export function Contact() {
                     type="submit"
                     className="btn-primary w-full"
                   >
-                    Send Request
+                    Open email draft
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </form>
@@ -160,12 +163,12 @@ export function Contact() {
               <ContactCard
                 icon={Mail}
                 title="Email us"
-                value="hello@onboardy.com"
+                value="rahmatkhan2001@hotmail.com"
               />
               <ContactCard
                 icon={MessageSquare}
-                title="Live chat"
-                value="Mon–Fri, 9am–6pm"
+                title="Contact method"
+                value="Email enquiries"
               />
               <div
                 className="card-glass glass-shine p-5"
