@@ -18,9 +18,25 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
     };
   }, [open]);
 
@@ -78,6 +94,7 @@ export function Navbar() {
             className="glass grid h-11 w-11 place-items-center rounded-full md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
           >
             {open ? (
               <X className="h-4 w-4" style={{ color: "var(--fg)" }} />
@@ -96,6 +113,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
+            id="mobile-navigation"
+            role="navigation"
+            aria-label="Mobile"
             className="glass-heavy mx-auto mt-2 max-w-5xl overflow-hidden rounded-3xl p-3 md:hidden"
           >
             <ul className="flex flex-col">
